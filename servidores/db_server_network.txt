@@ -1,0 +1,38 @@
+DB-SERVER
+
+IP:
+10.24.96.132/28
+
+Gateway:
+10.24.96.129
+
+DNS:
+10.24.96.129
+
+Zona:
+DMZ - VLAN 30
+
+Servicios:
+MariaDB TCP/3306
+SSH TCP/22
+
+Función:
+Servidor de base de datos para los sistemas ubicados en la DMZ.
+
+Acceso SSH:
+Permitido únicamente desde VLAN 20.
+
+Acceso desde VLAN 10:
+SSH bloqueado.
+
+Base de datos:
+MariaDB 11.4
+
+Puerto:
+3306
+
+Seguridad:
+- Ubicado dentro de la DMZ.
+- Sin acceso abierto hacia Internet.
+- Acceso a Internet limitado a endpoints autorizados de actualización.
+- No puede iniciar tráfico hacia las redes LAN.
