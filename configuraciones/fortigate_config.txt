@@ -1,0 +1,48 @@
+FORTIGATE - CONFIGURACIÓN DEL LABORATORIO
+
+Equipo: FortiGate-VM64-KVM
+FortiOS: 7.4.12
+Modo: NAT
+
+WAN:
+port1 - 198.51.100.98/30
+Gateway - 198.51.100.97
+
+LAN-TRANSIT:
+port2 - 10.10.10.1/30
+
+DMZ:
+port3 - 10.24.96.129/28
+
+Redes:
+VLAN 10 - 10.24.96.0/25
+VLAN 20 - 10.24.97.0/25
+DMZ VLAN 30 - 10.24.96.128/28
+
+Servidores:
+WEB-CAJA - 10.24.96.130
+WEB-INVENTARIO - 10.24.96.131
+DB-SERVER - 10.24.96.132
+
+POLÍTICAS:
+
+1. VLAN20_TO_DMZ_SSH
+Origen: VLAN20-NET
+Destino: DMZ-SERVERS
+Servicio: SSH
+Acción: ACCEPT
+
+2. VLAN10_TO_CAJA_HTTPS
+Origen: VLAN10-NET
+Destino: WEB-CAJA
+Servicio: HTTPS
+Acción: ACCEPT
+
+3. DMZ_TO_UPDATES_ONLY
+Origen: DMZ-SERVERS
+Destino: UPDATE-ENDPOINTS
+Servicios: HTTP, HTTPS
+Acción: ACCEPT
+NAT: habilitado
+
+Todo tráfico no autorizado es bloqueado mediante Implicit Deny.
