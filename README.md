@@ -10,7 +10,7 @@
 
 Puedes ver la demostración completa del laboratorio en el siguiente enlace:
 
-[Ver video de demostración en YouTube](AQUI_VA_EL_LINK_DEL_VIDEO)
+[Ver video de demostración en YouTube](https://youtu.be/GwzhK92OBJs)
 
 ---
 
