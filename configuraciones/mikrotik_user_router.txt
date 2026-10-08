@@ -1,0 +1,86 @@
+MIKROTIK USER-ROUTER - CONFIGURACIÓN DEL LABORATORIO
+
+Equipo: MikroTik CHR
+RouterOS: 7.23.7
+
+INTERFACES
+
+ether1
+- Enlace de tránsito hacia FortiGate
+- IP: 10.10.10.2/30
+
+ether2
+- Trunk hacia SW1-LAB
+- Transporta VLAN 10 y VLAN 20
+
+
+VLAN 10 - USUARIOS
+
+Nombre: VLAN10-USERS
+VLAN ID: 10
+Interfaz física: ether2
+Gateway: 10.24.96.1/25
+
+Red:
+10.24.96.0/25
+
+DHCP Pool:
+10.24.96.10 - 10.24.96.120
+
+DHCP Server:
+DHCP-VLAN10
+
+DNS:
+8.8.8.8
+1.1.1.1
+
+
+VLAN 20 - ADMINISTRACIÓN
+
+Nombre: VLAN20-ADMIN
+VLAN ID: 20
+Interfaz física: ether2
+Gateway: 10.24.97.1/25
+
+Red:
+10.24.97.0/25
+
+DHCP Pool:
+10.24.97.10 - 10.24.97.120
+
+DHCP Server:
+DHCP-VLAN20
+
+DNS:
+8.8.8.8
+1.1.1.1
+
+
+RUTAS
+
+Ruta por defecto:
+0.0.0.0/0 -> 10.10.10.1
+
+Redes directamente conectadas:
+10.10.10.0/30
+10.24.96.0/25
+10.24.97.0/25
+
+
+PRUEBAS DHCP
+
+USER-VLAN10:
+IP asignada: 10.24.96.120/25
+Gateway: 10.24.96.1
+Estado DHCP: bound
+
+USER-VLAN20:
+IP asignada: 10.24.97.120/25
+Gateway: 10.24.97.1
+Estado DHCP: bound
+
+CLIENT-VLAN10:
+IP asignada: 10.24.96.119/25
+
+USER-PC VLAN20:
+IP asignada: 10.24.97.119/25
