@@ -1,0 +1,75 @@
+SW1-LAB - CONFIGURACIÓN DEL LABORATORIO
+
+Tipo:
+Ethernet Switch de GNS3
+
+FUNCIÓN:
+Conmutación de la red de usuarios y transporte de VLAN 10 y VLAN 20 hacia el MikroTik USER-ROUTER.
+
+PUERTOS
+
+Port 0
+- Tipo: access
+- VLAN: 20
+- Dispositivo: USER-PC
+- Uso: Cliente de pruebas de administración/SSH
+
+Port 1
+- Tipo: access
+- VLAN: 99
+- Uso: Parking / puerto no utilizado
+
+Port 2
+- Tipo: access
+- VLAN: 99
+- Uso: Parking / puerto no utilizado
+
+Port 3
+- Tipo: dot1q
+- Uso: Trunk hacia USER-ROUTER ether2
+- VLAN transportadas: 10 y 20
+
+Port 4
+- Tipo: access
+- VLAN: 99
+- Uso: Parking / puerto no utilizado
+
+Port 5
+- Tipo: access
+- VLAN: 20
+- Dispositivo: USER-VLAN20
+
+Port 6
+- Tipo: access
+- VLAN: 10
+- Dispositivo: CLIENT-VLAN10
+
+Port 7
+- Tipo: access
+- VLAN: 10
+- Dispositivo: USER-VLAN10
+
+
+VLAN IMPLEMENTADAS
+
+VLAN 10
+- Usuarios
+- Red: 10.24.96.0/25
+- Gateway: 10.24.96.1
+
+VLAN 20
+- Administración
+- Red: 10.24.97.0/25
+- Gateway: 10.24.97.1
+
+VLAN 99
+- Parking VLAN
+- Utilizada para puertos no utilizados como medida básica de seguridad.
+
+
+SEGURIDAD BÁSICA
+
+- Segmentación mediante VLAN.
+- Uso de VLAN 99 como Parking VLAN.
+- Puertos no utilizados separados de las VLAN de producción.
+- Trunk dedicado únicamente para el enlace hacia USER-ROUTER.
