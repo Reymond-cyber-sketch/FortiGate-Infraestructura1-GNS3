@@ -1,0 +1,26 @@
+WEB-CAJA
+
+IP:
+10.24.96.130/28
+
+Gateway:
+10.24.96.129
+
+DNS:
+10.24.96.129
+
+Zona:
+DMZ - VLAN 30
+
+Servicios:
+HTTPS TCP/443
+SSH TCP/22
+
+Función:
+Sistema Web de Caja.
+
+Acceso desde VLAN 10:
+Permitido mediante HTTPS.
+
+Acceso SSH:
+Permitido únicamente desde VLAN 20.
