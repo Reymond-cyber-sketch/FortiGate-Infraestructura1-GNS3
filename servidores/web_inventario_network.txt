@@ -1,0 +1,29 @@
+WEB-INVENTARIO
+
+IP:
+10.24.96.131/28
+
+Gateway:
+10.24.96.129
+
+DNS:
+10.24.96.129
+
+Zona:
+DMZ - VLAN 30
+
+Servicios:
+HTTPS TCP/443
+SSH TCP/22
+
+Función:
+Sistema Web de Inventario.
+
+Acceso desde VLAN 10:
+Bloqueado.
+
+Acceso SSH:
+Permitido únicamente desde VLAN 20.
+
+Control de seguridad:
+Los intentos de acceso HTTPS desde VLAN 10 son bloqueados por FortiGate mediante Implicit Deny y quedan registrados en los logs.
